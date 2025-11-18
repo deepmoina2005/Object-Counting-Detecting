@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import VideoUpload from '../Pages/VideoUpload';
 import VideoResults from '../Pages/VideoResults';
 import FeatureCards from '../Pages/FeatureCards';
-import RealtimeCamera from '../Pages/RealtimeCamera';
+import RealtimeCamera from './RealtimeCamera';
 import useDetection from '../hooks/useDetection';
 import { Video as VideoIcon } from 'lucide-react';
 

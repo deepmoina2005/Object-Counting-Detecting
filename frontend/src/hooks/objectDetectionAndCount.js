@@ -1,7 +1,8 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import { useState } from 'react';
 import axios from 'axios';
 
-const useDetection = (file) => {
+const objectDetectionAndCount = (file) => {
   const [isProcessing, setIsProcessing] = useState(false);
   const [results, setResults] = useState(null);
 
@@ -13,7 +14,7 @@ const useDetection = (file) => {
       const formData = new FormData();
       formData.append('file', file);
 
-      const response = await axios.post('http://localhost:8000/detect', formData, {
+      const response = await axios.post('http://localhost:8000/object/detect', formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
 
@@ -46,4 +47,4 @@ const useDetection = (file) => {
   return { isProcessing, results, handleDetection, resetDetection };
 };
 
-export default useDetection;
+export default objectDetectionAndCount;

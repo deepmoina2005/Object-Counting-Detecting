@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import ImageUpload from '../Pages/ImageUpload';
-import ResultsDisplay from '../Pages/ResultsDisplay';
-import FeatureCards from '../Pages/FeatureCards';
-import useDetection from '../hooks/useDetection';
+import ImageUpload from '../components/ImageUpload';
+import ResultsDisplay from '../components/ResultsDisplay';
+import FeatureCards from '../components/FeatureCards';
+import animalDetection from '../hooks/animalDetection';
 
-const ImageDetection = () => {
+const AnimalDetection = () => {
   const [uploadedImage, setUploadedImage] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
 
-  const { isProcessing, results, handleDetection, resetDetection } = useDetection(
+  const { isProcessing, results, handleDetection, resetDetection } = animalDetection(
     uploadedImage,
     'opencv'
   );
@@ -66,4 +66,4 @@ const ImageDetection = () => {
   );
 };
 
-export default ImageDetection;
+export default AnimalDetection;

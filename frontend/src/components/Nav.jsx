@@ -1,7 +1,14 @@
 import React from 'react';
-import { Image, Video } from 'lucide-react';
+import { Image, Activity, FileText } from 'lucide-react';
 
 const Nav = ({ activeTab, setActiveTab }) => {
+  // Define nav links without Video
+  const navLinks = [
+    { id: 'object-count', label: 'Object Detect and Count', icon: <Activity size={20} /> },
+    { id: 'animal-detect', label: 'Animal Detect', icon: <Image size={20} /> },
+    { id: 'reports', label: 'Reports', icon: <FileText size={20} /> },
+  ];
+
   return (
     <header className="bg-slate-900/40 backdrop-blur-xl border-b border-white/10 sticky top-0 z-50 shadow-2xl">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
@@ -23,28 +30,20 @@ const Nav = ({ activeTab, setActiveTab }) => {
 
           {/* Navigation Links */}
           <nav className="flex gap-3">
-            <button
-              onClick={() => setActiveTab('image')}
-              className={`flex items-center gap-2 px-6 py-2.5 rounded-xl font-semibold transition-all duration-300 ${
-                activeTab === 'image'
-                  ? 'bg-gradient-to-r from-violet-500 to-purple-500 text-white shadow-lg shadow-purple-500/50 scale-105'
-                  : 'bg-white/5 text-slate-300 hover:bg-white/10 border border-white/10 hover:scale-105'
-              }`}
-            >
-              <Image size={20} />
-              <span className="hidden sm:inline">IMAGE</span>
-            </button>
-            <button
-              onClick={() => setActiveTab('video')}
-              className={`flex items-center gap-2 px-6 py-2.5 rounded-xl font-semibold transition-all duration-300 ${
-                activeTab === 'video'
-                  ? 'bg-gradient-to-r from-violet-500 to-purple-500 text-white shadow-lg shadow-purple-500/50 scale-105'
-                  : 'bg-white/5 text-slate-300 hover:bg-white/10 border border-white/10 hover:scale-105'
-              }`}
-            >
-              <Video size={20} />
-              <span className="hidden sm:inline">VIDEO</span>
-            </button>
+            {navLinks.map((link) => (
+              <button
+                key={link.id}
+                onClick={() => setActiveTab(link.id)}
+                className={`flex items-center gap-2 px-6 py-2.5 rounded-xl font-semibold transition-all duration-300 ${
+                  activeTab === link.id
+                    ? 'bg-gradient-to-r from-violet-500 to-purple-500 text-white shadow-lg shadow-purple-500/50 scale-105'
+                    : 'bg-white/5 text-slate-300 hover:bg-white/10 border border-white/10 hover:scale-105'
+                }`}
+              >
+                {link.icon}
+                <span className="hidden sm:inline">{link.label}</span>
+              </button>
+            ))}
           </nav>
         </div>
       </div>
