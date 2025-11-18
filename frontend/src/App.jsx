@@ -1,6 +1,5 @@
 import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import Nav from './components/Nav';
-import ImageDetection from './Pages/ObjectDetectionAndCount';
 import Footer from './components/Footer';
 import AnimalDetection from './Pages/AnimalDetection';
 
@@ -53,7 +52,6 @@ function App() {
 
         <main className="max-w-7xl mx-auto px-4 py-8">
           <Routes>
-            <Route path="/object-count" element={<ImageDetection />} />
             <Route path="/animal-detect" element={<AnimalDetection />} />
           </Routes>
         </main>

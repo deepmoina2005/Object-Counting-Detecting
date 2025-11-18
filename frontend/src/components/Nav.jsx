@@ -4,7 +4,6 @@ import { Image, Activity, FileText } from 'lucide-react';
 const Nav = ({ activeTab, setActiveTab }) => {
   // Define nav links without Video
   const navLinks = [
-    { id: 'object-count', label: 'Object Detect and Count', icon: <Activity size={20} /> },
     { id: 'animal-detect', label: 'Animal Detect', icon: <Image size={20} /> },
     { id: 'reports', label: 'Reports', icon: <FileText size={20} /> },
   ];

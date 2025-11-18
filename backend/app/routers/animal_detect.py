@@ -12,7 +12,6 @@ os.makedirs("output", exist_ok=True)
 
 model = YOLO("yolov8n.pt")
 
-# Canonical animal names
 ANIMAL_CLASSES = [
     "bird", "cat", "dog", "horse", "sheep", "cow", "elephant", "bear", "zebra", "giraffe",
     "antelope", "bat", "beaver", "bison", "boar", "buffalo", "camel", "canary", "capybara",
@@ -27,19 +26,14 @@ ANIMAL_CLASSES = [
 ]
 
 ANIMAL_NAME_MAP = {
-    # Birds
     "birds": "bird",
     "doves": "dove",
     "seagulls": "seagull",
     "hummingbirds": "hummingbird",
     "parrots": "parrot",
-
-    # Cats & dogs
     "cats": "cat",
     "dogs": "dog",
     "sheepdogs": "sheepdog",
-
-    # Large mammals
     "horses": "horse",
     "elephants": "elephant",
     "bears": "bear",
@@ -64,7 +58,6 @@ ANIMAL_NAME_MAP = {
     "antelopes": "antelope",
     "reindeers": "reindeer",
 
-    # Small mammals
     "mice": "mouse",
     "rats": "rat",
     "squirrels": "squirrel",
@@ -79,14 +72,12 @@ ANIMAL_NAME_MAP = {
     "hamsters": "hamster",
     "platypuses": "platypus",
 
-    # Amphibians / reptiles
     "frogs": "frog",
     "snakes": "snake",
     "lizards": "lizard",
     "turtles": "turtle",
     "tortoises": "tortoise",
 
-    # Marine / aquatic
     "dolphins": "dolphin",
     "whales": "whale",
     "sharks": "shark",
@@ -95,10 +86,8 @@ ANIMAL_NAME_MAP = {
     "crabs": "crab",
     "goldfishes": "goldfish",
 
-    # Birds already listed, add extra
     "owls": "owl",
 
-    # Misc / others
     "horses": "horse",
     "llamas": "llama",
     "caribous": "caribou",
@@ -140,7 +129,6 @@ async def animal_detect(file: UploadFile = File(...)):
             cls_id = int(box.cls[0].item()) if hasattr(box.cls, "__getitem__") else int(box.cls)
             label = results.names[cls_id].lower()
 
-            # Normalize label if it's in plural or alias map
             label = ANIMAL_NAME_MAP.get(label, label)
 
             if label not in ANIMAL_CLASSES:

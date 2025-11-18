@@ -1,7 +1,6 @@
 from fastapi import FastAPI  # type: ignore
 from fastapi.middleware.cors import CORSMiddleware  # type: ignore
 from fastapi.staticfiles import StaticFiles  # type: ignore
-from app.routers import detection  # general detect router
 from app.routers import animal_detect  # animal-only detect router
 
 app = FastAPI(title="Object Counting Project")
@@ -19,7 +18,6 @@ app.add_middleware(
 # -------------------------------
 # Routers
 # -------------------------------
-app.include_router(detection.router, prefix="/object", tags=["Detection"])
 app.include_router(animal_detect.router, prefix="/animal", tags=["Animal Detection"])
 
 # -------------------------------
