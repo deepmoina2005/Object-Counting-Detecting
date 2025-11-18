@@ -1,7 +1,8 @@
-import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
-import Nav from './components/Nav';
-import Footer from './components/Footer';
-import AnimalDetection from './Pages/AnimalDetection';
+import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
+import Nav from "./components/Nav";
+import Footer from "./components/Footer";
+import AnimalDetection from "./Pages/AnimalDetection";
+import Reports from "./Pages/Reports";
 
 function App() {
   const navigate = useNavigate();
@@ -9,32 +10,32 @@ function App() {
 
   // Map pathname to active tab
   const activeTab = (() => {
-    if (location.pathname.includes('object-count')) return 'object-count';
-    if (location.pathname.includes('animal-detect')) return 'animal-detect';
-    if (location.pathname.includes('reports')) return 'reports';
-    if (location.pathname.includes('video')) return 'video';
-    return 'image';
+    if (location.pathname.includes("object-count")) return "object-count";
+    if (location.pathname.includes("animal-detect")) return "animal-detect";
+    if (location.pathname.includes("reports")) return "reports";
+    if (location.pathname.includes("video")) return "video";
+    return "image";
   })();
 
   const handleTabChange = (tabId) => {
     switch (tabId) {
-      case 'image':
-        navigate('/image');
+      case "image":
+        navigate("/image");
         break;
-      case 'object-count':
-        navigate('/object-count');
+      case "object-count":
+        navigate("/object-count");
         break;
-      case 'animal-detect':
-        navigate('/animal-detect');
+      case "animal-detect":
+        navigate("/animal-detect");
         break;
-      case 'reports':
-        navigate('/reports');
+      case "reports":
+        navigate("/reports");
         break;
-      case 'video':
-        navigate('/video');
+      case "video":
+        navigate("/video");
         break;
       default:
-        navigate('/image');
+        navigate("/image");
     }
   };
 
@@ -53,6 +54,7 @@ function App() {
         <main className="max-w-7xl mx-auto px-4 py-8">
           <Routes>
             <Route path="/animal-detect" element={<AnimalDetection />} />
+            <Route path="/reports" element={<Reports />} />
           </Routes>
         </main>
 

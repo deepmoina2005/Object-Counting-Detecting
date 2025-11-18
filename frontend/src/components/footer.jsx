@@ -9,10 +9,10 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <h3 className="text-2xl font-bold bg-gradient-to-r from-violet-400 via-purple-400 to-fuchsia-400 bg-clip-text text-transparent mb-2">
-              Object Counter Pro
+              Animal Detector
             </h3>
             <p className="text-slate-400">
-              AI-powered object counting for modern applications
+              AI-powered animal detection and counting
             </p>
           </div>
 
@@ -20,9 +20,21 @@ const Footer = () => {
           <div>
             <h4 className="text-white font-semibold mb-3">Quick Links</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="text-slate-400 hover:text-purple-400 transition-colors">Documentation</a></li>
-              <li><a href="#" className="text-slate-400 hover:text-purple-400 transition-colors">API Reference</a></li>
-              <li><a href="#" className="text-slate-400 hover:text-purple-400 transition-colors">Support</a></li>
+              <li>
+                <a href="#" className="text-slate-400 hover:text-purple-400 transition-colors">
+                  Documentation
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-slate-400 hover:text-purple-400 transition-colors">
+                  API Reference
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-slate-400 hover:text-purple-400 transition-colors">
+                  Support
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -30,13 +42,22 @@ const Footer = () => {
           <div>
             <h4 className="text-white font-semibold mb-3">Connect</h4>
             <div className="flex gap-4">
-              <a href="#" className="bg-white/5 backdrop-blur-sm p-3 rounded-xl hover:bg-white/10 transition-all duration-300 hover:scale-110 border border-white/10">
+              <a
+                href="#"
+                className="bg-white/5 backdrop-blur-sm p-3 rounded-xl hover:bg-white/10 transition-all duration-300 hover:scale-110 border border-white/10"
+              >
                 <Github className="text-white" size={20} />
               </a>
-              <a href="#" className="bg-white/5 backdrop-blur-sm p-3 rounded-xl hover:bg-white/10 transition-all duration-300 hover:scale-110 border border-white/10">
+              <a
+                href="#"
+                className="bg-white/5 backdrop-blur-sm p-3 rounded-xl hover:bg-white/10 transition-all duration-300 hover:scale-110 border border-white/10"
+              >
                 <Linkedin className="text-white" size={20} />
               </a>
-              <a href="#" className="bg-white/5 backdrop-blur-sm p-3 rounded-xl hover:bg-white/10 transition-all duration-300 hover:scale-110 border border-white/10">
+              <a
+                href="#"
+                className="bg-white/5 backdrop-blur-sm p-3 rounded-xl hover:bg-white/10 transition-all duration-300 hover:scale-110 border border-white/10"
+              >
                 <Mail className="text-white" size={20} />
               </a>
             </div>
@@ -45,7 +66,7 @@ const Footer = () => {
 
         <div className="border-t border-white/10 pt-6 text-center">
           <p className="text-slate-400">
-            © 2025 Object Counter Pro. Built for Avishkar Hackathon - CTII Dibrugarh University
+            © 2025 Animal Detector. Built by SCC Coding Club for Avishkar Hackathon
           </p>
         </div>
       </div>

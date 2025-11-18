@@ -24,7 +24,6 @@ const ImageUpload = ({
     showCamera, 
     videoRef, 
     canvasRef, 
-    startCamera, 
     stopCamera, 
     capturePhoto 
   } = useCamera(onImageUpload);
@@ -34,15 +33,12 @@ const ImageUpload = ({
       {/* Upload Section */}
       <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-2xl hover:shadow-purple-500/10 transition-all duration-300">
         <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-3">
-          <div className="w-9 h-9 bg-gradient-to-br from-violet-500 to-purple-500 rounded-xl flex items-center justify-center text-white font-bold shadow-lg shadow-purple-500/50">
-            2
-          </div>
           Upload or Capture Image
         </h3>
 
         {!showCamera ? (
           <>
-            {/* Drag and Drop Zone */}
+            {/* Drag & Drop Zone */}
             <div
               onDragEnter={handleDragEnter}
               onDragOver={handleDragOver}
@@ -67,20 +63,9 @@ const ImageUpload = ({
                 <p className="text-white font-semibold mb-2 text-lg">
                   {isDragging ? 'Drop image here' : 'Drag & Drop or Click to Upload'}
                 </p>
-                <p className="text-slate-400 text-sm">
-                  Supports JPG, PNG (Max 10MB)
-                </p>
+                <p className="text-slate-400 text-sm">Supports JPG, PNG (Max 10MB)</p>
               </label>
             </div>
-
-            {/* Camera Button */}
-            <button
-              onClick={startCamera}
-              className="mt-4 w-full bg-gradient-to-r from-blue-500 to-cyan-500 text-white py-3 rounded-xl font-semibold hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-300 flex items-center justify-center gap-2 hover:scale-[1.02]"
-            >
-              <Camera size={20} />
-              Open Camera
-            </button>
           </>
         ) : (
           /* Camera View */
@@ -141,9 +126,6 @@ const ImageUpload = ({
       {imagePreview && !showCamera && (
         <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-2xl hover:shadow-purple-500/10 transition-all duration-300 animate-in slide-in-from-bottom duration-500">
           <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-3">
-            <div className="w-9 h-9 bg-gradient-to-br from-violet-500 to-purple-500 rounded-xl flex items-center justify-center text-white font-bold shadow-lg shadow-purple-500/50">
-              3
-            </div>
             Start Detection
           </h3>
           <button
@@ -159,7 +141,7 @@ const ImageUpload = ({
             ) : (
               <>
                 <Play size={20} />
-                Detect Objects
+                Detect Animal
               </>
             )}
           </button>
@@ -168,7 +150,7 @@ const ImageUpload = ({
           <div className="mt-4 bg-blue-500/10 backdrop-blur-sm border border-blue-400/30 rounded-xl p-4 flex gap-3">
             <AlertCircle className="text-blue-400 flex-shrink-0 animate-pulse" size={20} />
             <p className="text-slate-300 text-sm">
-              OpenCV uses advanced color detection and thresholding for precise object counting
+              OpenCV / YOLO detection will process your image and show annotated results.
             </p>
           </div>
         </div>

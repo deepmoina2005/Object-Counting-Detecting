@@ -158,3 +158,44 @@ async def animal_detect(file: UploadFile = File(...)):
 
     except Exception as e:
         return {"status": False, "error": str(e)}
+
+
+@router.get("/detections")
+async def get_all_detections():
+    try:
+        # Fetch all records from MongoDB
+        records = list(collection.find({}, {
+            "_id": 1,
+            "file_name": 1,
+            "saved_image": 1,
+            "image_url": 1,
+            "animals": 1,
+            "timestamp": 1
+        }))
+        
+        # Convert _id to string if needed
+        for record in records:
+            record["_id"] = str(record["_id"])
+        
+        return {"status": True, "detections": records}
+    
+    except Exception as e:
+        return {"status": False, "error": str(e)}
+    
+
+@router.delete("/detections/{record_id}")
+async def delete_detection(record_id: str):
+    try:
+        record = collection.find_one({"_id": record_id})
+        if not record:
+            return {"status": False, "error": "Record not found"}
+
+        # delete image file
+        file_path = f"output/{record['saved_image']}"
+        if os.path.exists(file_path):
+            os.remove(file_path)
+
+        collection.delete_one({"_id": record_id})
+        return {"status": True, "message": "Record deleted successfully"}
+    except Exception as e:
+        return {"status": False, "error": str(e)}

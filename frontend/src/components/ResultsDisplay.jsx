@@ -28,9 +28,6 @@ ${results.objects.map((obj) => `- ${obj.name}: ${obj.confidence}%`).join("\n")}
   return (
     <div className="bg-gradient-to-br from-gray-900/40 to-gray-900/60 backdrop-blur-xl border border-white/10 rounded-3xl p-6 shadow-2xl lg:sticky lg:top-24 h-fit transition-all duration-500 hover:shadow-purple-500/30">
       <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-        <div className="w-10 h-10 bg-gradient-to-br from-violet-500 to-purple-500 rounded-xl flex items-center justify-center text-white font-bold shadow-xl">
-          4
-        </div>
         Detection Results
       </h3>
 
@@ -102,7 +99,7 @@ ${results.objects.map((obj) => `- ${obj.name}: ${obj.confidence}%`).join("\n")}
           {/* Total Objects */}
           <div className="bg-gradient-to-br from-violet-500 via-purple-500 to-fuchsia-500 rounded-3xl p-6 text-center shadow-xl hover:scale-[1.03] transition-transform duration-300">
             <p className="text-white/80 text-sm font-semibold mb-2">
-              Total Objects Detected
+              Total Animals Detected
             </p>
             <p className="text-6xl font-bold text-white">{results.count}</p>
           </div>
@@ -111,15 +108,15 @@ ${results.objects.map((obj) => `- ${obj.name}: ${obj.confidence}%`).join("\n")}
           <div>
             <h4 className="text-white font-semibold mb-3 flex items-center gap-2">
               <div className="w-2 h-2 bg-purple-500 rounded-full animate-pulse"></div>
-              Detected Objects
+              Detected Animals
             </h4>
             <div className="bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/10 shadow-inner">
               <table className="w-full">
                 <thead className="bg-white/10 backdrop-blur-sm">
                   <tr>
                     <th className="text-left p-4 text-white font-semibold text-sm">#</th>
-                    <th className="text-left p-4 text-white font-semibold text-sm">Object</th>
-                    <th className="text-right p-4 text-white font-semibold text-sm">All Objects</th>
+                    <th className="text-left p-4 text-white font-semibold text-sm">Name of Animals</th>
+                    <th className="text-right p-4 text-white font-semibold text-sm">Count Animals</th>
                   </tr>
                 </thead>
                 <tbody>
