@@ -1,0 +1,5 @@
+output
+__pycache__
+venv
+yolov8n.pt
+yolov8x-oiv7.pt

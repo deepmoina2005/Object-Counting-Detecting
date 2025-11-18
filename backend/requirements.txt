@@ -1,0 +1,28 @@
+fastapi
+uvicorn[standard]
+python-multipart
+pydantic
+pydantic-settings
+
+# Database
+motor
+pymongo
+
+# Authentication
+passlib[bcrypt]
+python-jose
+
+# Environment Variables
+python-dotenv
+
+# YOLO Model
+ultralytics
+opencv-python
+numpy
+pillow
+
+# Optional Image Processing
+scikit-image
+
+# Utilities
+requests
